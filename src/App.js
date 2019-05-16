@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Converter from './Converter';
-import Temp from './Temp';
+import {Temp} from './Temp';
 import './App.css'
 
 class App extends Component {
