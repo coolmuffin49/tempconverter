@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Temp from './Temp';
+import {Temp} from './Temp';
 
 function toFah(celsius) {
 	return (celsius * 9 /5) + 32;
