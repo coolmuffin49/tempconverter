@@ -1,32 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const unitName ={
 	c: 'Celsius',
 	f: 'Fahrenheit',
 }
 
-class Temp extends Component {
-	constructor(props) {
-		super(props);
-		this.onChange = this.onChange.bind(this);
+export function Temp(props) {
+	function onChange(e) {
+		props.onTemp(e.target.value);
 	}
 
-	onChange(e) {
-		this.props.onTemp(e.target.value);
-	}
+	const temp = props.temp;
+	const unit = props.unit;
 
-	render() {
-		const {temp} = this.props;
-		const {unit} = this.props;
-
-		return (
-			<div className="Temp">
-				<h3>Temperature in {unitName[unit]}:</h3>
-				<input value={temp} onChange={this.onChange} />
-				<span> °{unit}</span>
-			</div>
-		);
-	}
+	return (
+		<div className="Temp">
+			<h3>Temperature in {unitName[unit]}:</h3>
+			<input value={temp} onChange={onChange} />
+			<span> °{unit}</span>
+		</div>
+	);
 }
-
-export default Temp;
