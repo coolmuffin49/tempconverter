@@ -39,34 +39,14 @@ class Converter extends Component {
 	render() {
 		const {unit, temp} = this.state;
 		
-		let celsius=unit;
-		if(unit==='f') {
-			celsius=tryConvert(temp, toCel)
-		} else {
-			celsius=temp;
-		}
-		let fahrenheit=unit;
-		if(unit==='c')	{
-			fahrenheit=tryConvert(temp, toFah)
-		} else {
-			fahrenheit=temp;
-		}
+		let celsius=unit==='f' ? tryConvert(temp, toCel) :temp
+		let fahrenheit=unit=== 'c' ? tryConvert(temp, toFah) :temp
 	return (
-			<div>
-				<Temp
-					unit="c"
-					temp={celsius}
-					onTemp={this.onChangeC} 
-				/>
-
-				<Temp
-					unit="f"
-					temp={fahrenheit}
-					onTemp={this.onChangeF} 
-				/>
-			</div>
-		);
-	}
+		<div>
+			<Temp unit="c" temp={celsius} onTemp={this.onChangeC} />
+			<Temp unit="f" temp={fahrenheit} onTemp={this.onChangeF} />
+		</div>
+	);}
 }
 
 export default Converter;
